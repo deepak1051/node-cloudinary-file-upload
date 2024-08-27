@@ -10,7 +10,8 @@ export const getImages = async (nextCursor) => {
     if (nextCursor) {
       params.append('next_cursor', nextCursor);
     }
-    const { data } = await axios.get(`${API_URL}/photos?{params}`);
+
+    const { data } = await axios.get(`${API_URL}/photos?${params}`);
 
     return data;
   } catch (error) {

@@ -20,9 +20,13 @@ const AUTH = {
   password: API_SECRET,
 };
 app.get('/photos', async (req, res) => {
+  console.log(req.query);
   try {
     const { data } = await axios.get(BASE_URL, {
       auth: AUTH,
+      params: {
+        next_cursor: req.query.next_cursor,
+      },
     });
     res.status(200).json(data);
   } catch (error) {
