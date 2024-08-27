@@ -18,3 +18,20 @@ export const getImages = async (nextCursor) => {
     console.log(error);
   }
 };
+
+export const searchImages = async (searchValue, nextCursor) => {
+  try {
+    const params = new URLSearchParams();
+    params.append(`expression`, searchValue);
+
+    if (nextCursor) {
+      params.append('next_cursor', nextCursor);
+    }
+
+    const { data } = await axios.get(`${API_URL}/search?${params}`);
+
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
