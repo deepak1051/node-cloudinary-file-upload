@@ -20,7 +20,6 @@ const AUTH = {
   password: API_SECRET,
 };
 app.get('/photos', async (req, res) => {
-  console.log(req.query);
   try {
     const { data } = await axios.get(BASE_URL + '/resources/image', {
       auth: AUTH,
@@ -38,7 +37,6 @@ app.get('/photos', async (req, res) => {
 });
 
 app.get('/search', async (req, res) => {
-  console.log(req.query);
   try {
     const { data } = await axios.get(BASE_URL + '/resources/search', {
       auth: AUTH,
